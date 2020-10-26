@@ -121,7 +121,7 @@ const fetchTask = shipit => {
       const fetchDepth = shipit.config.shallowClone ? ' --depth=1' : ''
 
       // fetch branches and tags separate to be compatible with git versions < 1.9
-      fetchCommand += `${fetchDepth} && ${fetchCommand} "refs/tags/*:refs/tags/*"`
+      fetchCommand += `${fetchDepth}` // && ${fetchCommand} "refs/tags/*:refs/tags/*" git tag | sort - V | tail - 1
 
       shipit.log('Fetching repository "%s"', shipit.config.repositoryUrl)
 
